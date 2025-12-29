@@ -50,7 +50,7 @@ public class Patient {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "patient")
-    private List<Reservation> reservations = new ArrayList<>();
+    private List<Appointment> appointments = new ArrayList<>();
 
     @OneToMany(mappedBy = "patient")
     private List<MedicalRecord> medicalRecords = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Patient {
         this.createdAt = LocalDateTime.now();
     }
 
-    public Patient(String lastName, String firstName, Sex sex, String cnp, LocalDate birthDate, String phoneNumber, String email, LocalDateTime createdAt, List<Reservation> reservations, List<MedicalRecord> medicalRecords) {
+    public Patient(String lastName, String firstName, Sex sex, String cnp, LocalDate birthDate, String phoneNumber, String email, LocalDateTime createdAt, List<Appointment> appointments, List<MedicalRecord> medicalRecords) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.sex = sex;
@@ -71,7 +71,7 @@ public class Patient {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.createdAt = createdAt;
-        this.reservations = reservations;
+        this.appointments = appointments;
         this.medicalRecords = medicalRecords;
     }
 
@@ -147,12 +147,12 @@ public class Patient {
         this.createdAt = createdAt;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Appointment> getReservations() {
+        return appointments;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservations(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
     public List<MedicalRecord> getMedicalRecords() {

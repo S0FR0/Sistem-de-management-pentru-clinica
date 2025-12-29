@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
-public class Reservation {
+public class Appointment {
 
     public enum Status {
         PROGRAMAT,
@@ -45,18 +45,18 @@ public class Reservation {
     @OneToOne(mappedBy = "reservation")
     private MedicalRecord medicalRecord;
 
-    public Reservation () {}
+    public Appointment() {}
 
     @PrePersist
     protected void onCreate() { this.createdAt = LocalDateTime.now(); }
 
-    public Reservation(LocalDate date, LocalTime start, LocalTime finish) {
+    public Appointment(LocalDate date, LocalTime start, LocalTime finish) {
         this.date = date;
         this.start = start;
         this.finish = finish;
     }
 
-    public Reservation(Long id, Doctor doctor, Patient patient, LocalDate date, LocalTime start, LocalTime finish, Status status, LocalDateTime createdAt, MedicalRecord medicalRecord) {
+    public Appointment(Long id, Doctor doctor, Patient patient, LocalDate date, LocalTime start, LocalTime finish, Status status, LocalDateTime createdAt, MedicalRecord medicalRecord) {
         this.id = id;
         this.doctor = doctor;
         this.patient = patient;

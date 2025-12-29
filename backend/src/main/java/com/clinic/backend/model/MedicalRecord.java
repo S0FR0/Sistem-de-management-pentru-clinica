@@ -13,7 +13,7 @@ public class MedicalRecord {
 
     @OneToOne
     @JoinColumn(name = "reservationId", nullable = false)
-    private Reservation reservation;
+    private Appointment appointment;
 
     @ManyToOne
     @JoinColumn(name = "patientId", nullable = false)
@@ -40,8 +40,8 @@ public class MedicalRecord {
     @PrePersist
     protected void onCreate() { this.createdAt = LocalDateTime.now(); }
 
-    public MedicalRecord(Reservation reservation, Patient patient, Doctor doctor, String diagnosis, String symptoms, String observations) {
-        this.reservation = reservation;
+    public MedicalRecord(Appointment appointment, Patient patient, Doctor doctor, String diagnosis, String symptoms, String observations) {
+        this.appointment = appointment;
         this.patient = patient;
         this.doctor = doctor;
         this.diagnosis = diagnosis;
@@ -57,12 +57,12 @@ public class MedicalRecord {
         this.id = id;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public Appointment getReservation() {
+        return appointment;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setReservation(Appointment appointment) {
+        this.appointment = appointment;
     }
 
     public Patient getPatient() {

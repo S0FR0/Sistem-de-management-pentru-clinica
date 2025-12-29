@@ -27,7 +27,7 @@ public class Doctor {
     private List<Schedule> schedules = new ArrayList<>();
 
     @OneToMany(mappedBy = "doctor")
-    private List<Reservation> reservations = new ArrayList<>();
+    private List<Appointment> appointments = new ArrayList<>();
 
     @OneToMany(mappedBy = "doctor")
     private List<Prescription> prescriptions;
@@ -43,12 +43,12 @@ public class Doctor {
         this.specialization = specialization;
     }
 
-    public Doctor(String licenceNumber, User user, Specialization specialization, List<Schedule> schedules, List<Reservation> reservations, List<Prescription> prescriptions, List<MedicalRecord> medicalRecords) {
+    public Doctor(String licenceNumber, User user, Specialization specialization, List<Schedule> schedules, List<Appointment> appointments, List<Prescription> prescriptions, List<MedicalRecord> medicalRecords) {
         this.licenceNumber = licenceNumber;
         this.user = user;
         this.specialization = specialization;
         this.schedules = schedules;
-        this.reservations = reservations;
+        this.appointments = appointments;
         this.prescriptions = prescriptions;
         this.medicalRecords = medicalRecords;
     }
@@ -97,12 +97,12 @@ public class Doctor {
         this.schedules = schedules;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Appointment> getReservations() {
+        return appointments;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservations(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
     public List<Prescription> getPrescriptions() {
