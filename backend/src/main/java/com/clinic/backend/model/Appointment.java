@@ -42,7 +42,7 @@ public class Appointment {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @OneToOne(mappedBy = "reservation")
+    @OneToOne(mappedBy = "appointment")
     private MedicalRecord medicalRecord;
 
     public Appointment() {}
